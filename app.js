@@ -10,12 +10,20 @@ console.log(rootElement, increaseButton, decreaseButton, display)
 //Setup
 decreaseButton.addEventListener('click', dec);
 increaseButton.addEventListener('click', inc);
+render(); //to have counter start position displayed ie 0
 //Function
 
 function dec(){
-console.log('decreasing')
+count -=1;
+render();
 }
 
 function inc(){
-console.log('increasing')
+count +=1;
+render();
+}
+
+function render(){ //updating the data with clicks
+    display.textContent = count;
+
 }
