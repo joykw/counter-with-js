@@ -1,13 +1,14 @@
 const Counter = {
     //this--> referring to Counter. 
     count: 0,
+    element: "#app",
     init: function(){
         this.cacheDOM();
         this.addListeners();
         this.render();
     },
     cacheDOM: function(){
-        this.rootElement = document.querySelector('#app');
+        this.rootElement = document.querySelector(this.element);
         this.increaseButton = this.rootElement.querySelector('.increase');
         this.decreaseButton = this.rootElement.querySelector('.decrease');
         this.display = this.rootElement.querySelector('.display');
@@ -31,7 +32,13 @@ const Counter = {
     }, 
 };
 
+const secondCounter = Object.create(Counter);
 Counter.init();
+secondCounter.element = '#second';
+secondCounter.init();
+
+
+
 
 
 
